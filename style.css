@@ -970,6 +970,82 @@ textarea:focus-visible {
         font-size: 10px;
     }
 }
+/* =====================================================
+   CLOUT VOICE INPUT
+===================================================== */
+
+.voice-button {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    transition:
+        transform 0.15s ease,
+        background 0.2s ease;
+}
+
+.voice-button:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.voice-button:active {
+    transform: scale(0.92);
+}
+
+
+/* Recording state */
+
+.voice-button.recording {
+    background: rgba(255, 60, 60, 0.2);
+
+    animation:
+        cloutVoicePulse 1s infinite;
+}
+
+
+@keyframes cloutVoicePulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .voice-button {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+   }
 
 /* =====================================================
    REDUCED MOTION
