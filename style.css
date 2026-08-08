@@ -685,6 +685,165 @@ textarea:focus-visible {
     outline: 2px solid rgba(72, 137, 255, 0.8);
     outline-offset: 2px;
 }
+/* =====================================================
+   CLOUT CHAT CONTROLS
+===================================================== */
+
+#clout-controls {
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    padding-top: calc(8px + env(safe-area-inset-top));
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+#clout-controls::-webkit-scrollbar {
+    display: none;
+}
+
+#clout-controls button {
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+    color: #dbe5f1;
+    padding: 8px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    transition: transform 0.15s ease, background 0.2s ease, border 0.2s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#clout-controls button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(88, 142, 255, 0.3);
+}
+
+#clout-controls button:active {
+    transform: scale(0.96);
+}
+
+#clout-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#clout-controls button:focus-visible {
+    outline: 2px solid rgba(72, 137, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* =====================================================
+   COPY BUTTON
+===================================================== */
+
+.copy-button {
+    margin-top: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: #a3b0c0;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease, background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.copy-button:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.copy-button:active {
+    transform: scale(0.95);
+}
+
+.copy-button:focus-visible {
+    outline: 2px solid rgba(72, 137, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* =====================================================
+   TYPING INDICATOR
+===================================================== */
+
+.typing {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 11px 14px;
+    min-height: 39px;
+}
+
+.typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #8da0b7;
+    opacity: 0.4;
+    animation: cloutTyping 1.2s infinite ease-in-out;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes cloutTyping {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.35;
+    }
+    30% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+    #clout-controls {
+        padding: 7px 10px;
+        padding-top: calc(7px + env(safe-area-inset-top));
+    }
+
+    #clout-controls button {
+        font-size: 12px;
+        padding: 7px 11px;
+    }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    #clout-controls button,
+    .copy-button,
+    .typing span {
+        animation: none;
+        transition: none;
+    }
+       }
 
 /* =====================================================
    REDUCED MOTION
