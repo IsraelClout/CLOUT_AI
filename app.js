@@ -536,6 +536,47 @@ window.addEventListener("beforeunload", () => {
   controller?.abort();
   stopSpeech();
 });
+/* =====================================================
+                    ABOUT PANEL
+===================================================== */
+function setupAboutPanel() {
+  const aboutButton = document.getElementById("about-button");
+  const aboutPanel = document.getElementById("about-panel");
+  const closeAbout = document.getElementById("close-about");
+  const aboutOverlay = document.getElementById("about-overlay");
+
+  if (!aboutButton || !aboutPanel) return;
+  if (aboutButton.dataset.initialized === "true") return; // prevent double init
+  aboutButton.dataset.initialized = "true";
+
+  let lastFocusedElement = null;
+
+  const openAbout = () => {
+    lastFocusedElement = document.activeElement;
+    aboutPanel.classList.add("open");
+    aboutPanel.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    closeAbout?.focus();
+  };
+
+  const closeAboutPanel = () => {
+    aboutPanel.classList.remove("open");
+    aboutPanel.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    lastFocusedElement?.focus();
+  };
+
+  aboutButton.addEventListener("click", openAbout);
+  closeAbout?.addEventListener("click", closeAboutPanel);
+  aboutOverlay?.addEventListener("click", closeAboutPanel);
+
+  document.addEventListener("keydown", event => {
+    const isOpen = aboutPanel.classList.contains("open");
+    if (event.key === "Escape" && isOpen) {
+      closeAboutPanel();
+    }
+  });
+}
 
 /* =====================================================
                   CLOUT DEBUG API
