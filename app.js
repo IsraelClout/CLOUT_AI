@@ -74,6 +74,7 @@ function initializeCLOUT() {
   setupForm();
   setupInput();
   setupStopButton();
+  setupVoiceInput();
   updateConnectionStatus();
   setInterval(updateConnectionStatus, 30000);
   messageInput?.focus();
@@ -127,6 +128,141 @@ function resizeInput() {
   messageInput.style.height = "auto";
   messageInput.style.height = `${Math.min(messageInput.scrollHeight, 160)}px`;
 }
+// =====================================================
+// CLOUT VOICE INPUT v1.0
+// Web Speech API Integration
+// Created by Gokah Israel Ewoenam
+// =====================================================
+
+const voiceButton = document.getElementById("voice-button");
+const messageInput = document.getElementById("messageInput");
+
+let recognition = null;
+let isListening = false;
+
+// =====================================================
+// CHECK BROWSER SUPPORT
+// =====================================================
+function setupVoiceInput() {
+    if (!voiceButton) {
+        console.warn("[CLOUT] #voice-button not found.");
+        return;
+    }
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    // Browser doesn't support speech recognition
+    if (!SpeechRecognition) {
+        voiceButton.disabled = true;
+        voiceButton.title = "Voice input is not supported by this browser.";
+        voiceButton.textContent = "🚫";
+        voiceButton.style.opacity = "0.5";
+        return;
+    }
+
+    // Create recognition engine
+    recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.lang = "en-GH"; // Ghanaian English for better accuracy in Accra
+
+    bindRecognitionEvents();
+    bindButtonClick();
+}
+
+// =====================================================
+// BIND EVENTS
+// =====================================================
+function bindRecognitionEvents() {
+    // Speech Result
+    recognition.addEventListener("result", (event) => {
+        let transcript = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            transcript += event.results[i][0].transcript;
+        }
+
+        if (messageInput) {
+            messageInput.value = transcript;
+            messageInput.dispatchEvent(new Event('input')); // triggers resize if you have it
+        }
+    });
+
+    // Voice Started
+    recognition.addEventListener("start", () => {
+        isListening = true;
+        voiceButton.classList.add("recording");
+        voiceButton.textContent = "⏹️";
+        voiceButton.title = "Tap to stop listening";
+    });
+
+    // Voice Ended
+    recognition.addEventListener("end", () => {
+        isListening = false;
+        voiceButton.classList.remove("recording");
+        voiceButton.textContent = "🎙️";
+        voiceButton.title = "Tap to speak to CLOUT";
+
+        // Auto-send if user spoke something
+        if (messageInput?.value.trim()) {
+            sendMessage(); // calls your existing sendMessage() from app.js
+        }
+    });
+
+    // Voice Error
+    recognition.addEventListener("error", (event) => {
+        console.error("[CLOUT Voice Error]:", event.error);
+        isListening = false;
+        voiceButton.classList.remove("recording");
+        voiceButton.textContent = "🎙️";
+        voiceButton.title = "Tap to speak to CLOUT";
+
+        let errorMsg = "Voice input failed.";
+        if (event.error === "not-allowed") errorMsg = "Microphone permission denied.";
+        if (event.error === "no-speech") errorMsg = "No speech detected.";
+        if (event.error === "network") errorMsg = "Network error. Check connection.";
+
+        addMessage(`⚠️ ${errorMsg}`, "ai", "internet"); // uses your addMessage from app.js
+    });
+}
+
+// =====================================================
+// BUTTON CLICK
+// =====================================================
+function bindButtonClick() {
+    voiceButton.addEventListener("click", () => {
+        if (isListening) {
+            stopVoiceInput();
+        } else {
+            startVoiceInput();
+        }
+    });
+}
+
+// =====================================================
+// START LISTENING
+// =====================================================
+function startVoiceInput() {
+    if (!recognition || isListening) return;
+
+    try {
+        recognition.start();
+    } catch (error) {
+        console.error("[CLOUT] Could not start voice input:", error);
+    }
+}
+
+// =====================================================
+// STOP LISTENING
+// =====================================================
+function stopVoiceInput() {
+    if (!recognition ||!isListening) return;
+    recognition.stop();
+}
+
+// =====================================================
+// INITIALIZE VOICE
+// =====================================================
+document.addEventListener("DOMContentLoaded", setupVoiceInput);
 
 /* =====================================================
                    STOP BUTTON
