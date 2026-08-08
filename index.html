@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- =================================================
+         BASIC INFORMATION
+         ================================================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#07111f">
+    <meta name="description" content="CLOUT AI - An Internet-powered AI assistant created by Gokah Israel Ewoenam.">
+    <meta name="author" content="Gokah Israel Ewoenam">
+    <title>CLOUT AI</title>
+
+    <!-- =================================================
+         STYLESHEET
+         ================================================= -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- =================================================
+         APP CONTAINER
+         ================================================= -->
+    <main class="app">
+
+        <!-- =============================================
+             HEADER
+             ============================================= -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="brand-logo" aria-hidden="true">C</div>
+                <div class="brand-info">
+                    <h1>CLOUT AI</h1>
+                    <div id="connection-status" class="connection-status">● Checking...</div>
+                </div>
+            </div>
+
+            <button class="menu-button" id="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
+                ☰
+            </button>
+        </header>
+
+        <!-- =============================================
+             CHAT AREA
+             ============================================= -->
+        <section id="chat-messages" class="chat-messages" aria-live="polite" aria-label="CLOUT AI conversation">
+            <!-- =========================================
+                 WELCOME MESSAGE
+                 ========================================= -->
+            <div class="welcome-screen" id="welcome-screen">
+                <div class="welcome-logo" aria-hidden="true">C</div>
+                <h2>Welcome to CLOUT AI</h2>
+                <p>Your Internet-powered AI assistant.</p>
+
+                <div class="creator-card">
+                    <span class="creator-label">Created by</span>
+                    <strong>Gokah Israel Ewoenam</strong>
+                    <span>Ghanaian • Ewe • Akatsi, Volta Region, Ghana</span>
+                </div>
+
+                <!-- =====================================
+                     QUICK ACTIONS
+                     ===================================== -->
+                <div class="quick-actions">
+                    <button type="button" class="quick-action" data-prompt="Explain artificial intelligence in simple terms.">
+                        🤖 <span>Explain AI</span>
+                    </button>
+                    <button type="button" class="quick-action" data-prompt="Help me learn JavaScript.">
+                        💻 <span>Learn coding</span>
+                    </button>
+                    <button type="button" class="quick-action" data-prompt="Give me an interesting fact.">
+                        💡 <span>Interesting fact</span>
+                    </button>
+                    <button type="button" class="quick-action" data-prompt="What can you help me with?">
+                        ✨ <span>Capabilities</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =============================================
+             COMPOSER
+             ============================================= -->
+        <section class="composer-area">
+            <!-- =========================================
+                 STOP BUTTON
+                 ========================================= -->
+            <button id="stop-button" class="stop-button" type="button" hidden>■ Stop generating</button>
+
+            <!-- =========================================
+                 INPUT FORM
+                 ========================================= -->
+            <form id="chat-form" class="chat-form" autocomplete="off">
+                <div class="input-wrapper">
+                    <textarea
+                        id="message-input"
+                        name="message"
+                        rows="1"
+                        maxlength="4000"
+                        placeholder="Ask CLOUT anything..."
+                        aria-label="Message CLOUT AI"
+                        required
+                    ></textarea>
+
+                    <button id="send-button" class="send-button" type="submit" aria-label="Send message">
+                        ➤
+                    </button>
+                </div>
+
+                <div class="composer-footer">
+                    <span>CLOUT AI may make mistakes.</span>
+                    <span>Powered by NVIDIA NIM</span>
+                </div>
+            </form>
+        </section>
+
+        <!-- =============================================
+             SIDE MENU
+             ============================================= -->
+        <aside id="side-menu" class="side-menu" aria-hidden="true">
+            <div class="side-menu-header">
+                <h2>CLOUT AI</h2>
+                <button id="close-menu" type="button" aria-label="Close menu">×</button>
+            </div>
+
+            <div class="menu-content">
+                <!-- =====================================
+                     ABOUT
+                     ===================================== -->
+                <section class="menu-section">
+                    <span class="section-label">ABOUT</span>
+                    <h3>CLOUT AI</h3>
+                    <p>An Internet-powered AI assistant designed for conversations, learning, coding and everyday questions.</p>
+                </section>
+
+                <!-- =====================================
+                     CREATOR
+                     ===================================== -->
+                <section class="menu-section">
+                    <span class="section-label">CREATOR</span>
+                    <h3>Gokah Israel Ewoenam</h3>
+                    <p>18 years old</p>
+                    <p>Ghanaian • Ewe</p>
+                    <p>Akatsi, Volta Region, Ghana</p>
+                </section>
+
+                <!-- =====================================
+                     SYSTEM
+                     ===================================== -->
+                <section class="menu-section">
+                    <span class="section-label">SYSTEM</span>
+                    <div class="info-row"><span>Version</span><strong>1.1.0</strong></div>
+                    <div class="info-row"><span>AI Provider</span><strong>NVIDIA NIM</strong></div>
+                    <div class="info-row"><span>Storage</span><strong>None</strong></div>
+                    <div class="info-row"><span>Platform</span><strong>Web</strong></div>
+                </section>
+
+                <!-- =====================================
+                     FEATURES
+                     ===================================== -->
+                <section class="menu-section">
+                    <span class="section-label">FEATURES</span>
+                    <ul class="feature-list">
+                        <li>⚡ Streaming AI responses</li>
+                        <li>🌐 Internet AI</li>
+                        <li>💬 Real-time conversation</li>
+                        <li>📱 Mobile-first design</li>
+                        <li>🔐 Server-side API security</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- =========================================
+                 MENU FOOTER
+                 ========================================= -->
+            <footer class="menu-footer">© 2026 Gokah Israel Ewoenam</footer>
+        </aside>
+
+        <!-- =============================================
+             MENU OVERLAY
+             ============================================= -->
+        <div id="menu-overlay" class="menu-overlay"></div>
+    </main>
+
+    <!-- =================================================
+         JAVASCRIPT
+         ================================================= -->
+    <script type="module" src="app.js"></script>
+
+    <!-- =================================================
+         MENU + QUICK ACTION SCRIPT
+         ================================================= -->
+    <script type="module">
+        /* =================================================
+           MENU LOGIC
+           ================================================= */
+        const menuButton = document.querySelector("#menu-button");
+        const closeMenu = document.querySelector("#close-menu");
+        const sideMenu = document.querySelector("#side-menu");
+        const overlay = document.querySelector("#menu-overlay");
+
+        function openMenu() {
+            sideMenu.classList.add("open");
+            overlay.classList.add("active");
+            sideMenu.setAttribute("aria-hidden", "false");
+            menuButton.setAttribute("aria-expanded", "true");
+            document.body.style.overflow = "hidden"; // prevent background scroll
+        }
+
+        function closeSideMenu() {
+            sideMenu.classList.remove("open");
+            overlay.classList.remove("active");
+            sideMenu.setAttribute("aria-hidden", "true");
+            menuButton.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
+        }
+
+        menuButton?.addEventListener("click", openMenu);
+        closeMenu?.addEventListener("click", closeSideMenu);
+        overlay?.addEventListener("click", closeSideMenu);
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSideMenu(); });
+
+        /* =================================================
+           QUICK ACTIONS + AUTO SEND
+           ================================================= */
+        const quickActions = document.querySelectorAll(".quick-action");
+        const messageInput = document.querySelector("#message-input");
+        const chatForm = document.querySelector("#chat-form");
+
+        quickActions.forEach((button) => {
+            button.addEventListener("click", () => {
+                const prompt = button.dataset.prompt;
+                if (messageInput && prompt) {
+                    // Hide welcome screen on first action
+                    document.getElementById("welcome-screen")?.remove();
+                    messageInput.value = prompt;
+                    messageInput.focus();
+                    chatForm?.requestSubmit(); // auto-send the quick action
+                }
+            });
+        });
+
+        /* =================================================
+           AUTO RESIZE TEXTAREA
+           ================================================= */
+        if (messageInput) {
+            const resize = () => {
+                messageInput.style.height = "auto";
+                messageInput.style.height = Math.min(messageInput.scrollHeight, 140) + "px";
+            };
+            messageInput.addEventListener("input", resize);
+            resize(); // run once on load
+        }
+
+        /* =================================================
+           REMOVE WELCOME ON FIRST MESSAGE
+           ================================================= */
+        chatForm?.addEventListener("submit", () => {
+            document.getElementById("welcome-screen")?.remove();
+        });
+    </script>
+</body>
+</html>
