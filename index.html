@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#030712">
+    <meta name="description" content="CLOUT AI - Internet-powered AI assistant created by Gokah Israel Ewoenam">
+    <meta name="author" content="Gokah Israel Ewoenam">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <title>CLOUT AI v4.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="background" aria-hidden="true">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+</div>
+
+<!-- APPLICATION -->
+<div class="app-shell">
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <div class="brand">
+            <div class="brand-icon" aria-hidden="true">C</div>
+            <div>
+                <h1>CLOUT AI</h1>
+                <div id="connection-status" class="online-status">
+                    <i class="status-dot"></i>
+                    <span>Connecting...</span>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="menu-button" id="menuButton" aria-label="Open menu">☰</button>
+    </header>
+
+    <!-- MENU OVERLAY -->
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+
+    <!-- SIDE MENU -->
+    <aside class="side-menu" id="sideMenu" role="dialog" aria-label="Menu">
+        <div class="menu-header">
+            <h2>CLOUT AI</h2>
+            <button type="button" class="close-button" id="closeMenuButton" aria-label="Close menu">×</button>
+        </div>
+
+        <nav class="menu-nav">
+            <button type="button" class="menu-item active" id="chatMenuButton">
+                <span>💬</span>
+                <strong>Chat</strong>
+            </button>
+
+            <button type="button" class="menu-item" id="newChatButton">
+                <span>＋</span>
+                <strong>New Chat</strong>
+            </button>
+
+            <button type="button" class="menu-item" id="clearChatButton">
+                <span>🗑</span>
+                <strong>Clear Chat</strong>
+            </button>
+
+            <button type="button" class="menu-item" id="aboutMenuButton">
+                <span>ℹ️</span>
+                <strong>About CLOUT</strong>
+            </button>
+        </nav>
+
+        <div class="menu-footer">
+            <span>CLOUT AI v4.0</span>
+            <small>Intelligent • Fast • Connected</small>
+        </div>
+    </aside>
+
+    <!-- CHAT PAGE -->
+    <main class="page active-page" id="chatPage" role="main">
+        <div class="chat-container" id="chatContainer">
+
+            <!-- WELCOME CARD -->
+            <section class="welcome-card" id="welcomeCard">
+                <div class="welcome-logo" aria-hidden="true">C</div>
+                <h2>Welcome to CLOUT AI</h2>
+                <p>Your intelligent AI assistant. Ask questions, learn new things, search the web, or simply have a conversation.</p>
+
+                <div class="suggestions">
+                    <button type="button" class="suggestion" data-prompt="Explain artificial intelligence in simple terms.">🤖 Explain AI</button>
+                    <button type="button" class="suggestion" data-prompt="Help me write a JavaScript program.">💻 Help with coding</button>
+                    <button type="button" class="suggestion" data-prompt="Give me some ideas for a new technology project.">🚀 Project ideas</button>
+                    <button type="button" class="suggestion" data-prompt="What's the latest news from Ghana?">🌐 Search Web</button>
+                </div>
+            </section>
+
+            <!-- CHAT MESSAGES -->
+            <div class="messages" id="messages" role="log" aria-live="polite"></div>
+
+            <!-- TYPING INDICATOR -->
+            <div class="typing-indicator" id="typingIndicator" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- INPUT AREA -->
+        <div class="input-area">
+            <form class="chat-form" id="chatForm" autocomplete="off">
+                <div class="input-glass">
+                    <label for="messageInput" class="visually-hidden">Message Input</label>
+                    
+                    <!-- VOICE BUTTON -->
+                    <button type="button" class="voice-button" id="voiceButton" aria-label="Voice input" title="Voice input">🎙️</button>
+
+                    <!-- MESSAGE INPUT -->
+                    <textarea 
+                        id="messageInput" 
+                        name="message" 
+                        rows="1" 
+                        maxlength="8000" 
+                        placeholder="Message CLOUT AI..." 
+                        autocomplete="off" 
+                        aria-label="Message CLOUT AI"
+                        required
+                    ></textarea>
+
+                    <!-- STOP BUTTON -->
+                    <button type="button" class="stop-button" id="stopButton" title="Stop generating" hidden>■</button>
+
+                    <!-- SEND BUTTON -->
+                    <button type="submit" class="send-button" id="sendButton" aria-label="Send message" title="Send message">➤</button>
+                </div>
+
+                <div class="disclaimer">
+                    CLOUT AI can make mistakes. Verify important information.
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- ABOUT PAGE -->
+    <main class="page" id="aboutPage" role="main" aria-labelledby="aboutTitle">
+        <div class="about-container">
+            <section class="about-hero">
+                <div class="about-logo" aria-hidden="true">C</div>
+                <h2 id="aboutTitle">About CLOUT AI</h2>
+                <p>An AI assistant designed to provide intelligent and useful conversations.</p>
+            </section>
+
+            <section class="glass-card">
+                <h3>🤖 What is CLOUT AI?</h3>
+                <p>CLOUT AI is an AI-powered conversational assistant. It can answer questions, help with coding, explain concepts, generate ideas, and interact with users through natural language.</p>
+            </section>
+
+            <section class="glass-card">
+                <h3>⚡ Technology</h3>
+                <p>CLOUT AI uses a modern web-based architecture with HTML, CSS, JavaScript, serverless API functions, AI models, and real-time streaming responses.</p>
+            </section>
+
+            <section class="glass-card">
+                <h3>✨ Features</h3>
+                <p>
+                    • AI conversations<br>
+                    • Streaming responses<br>
+                    • Conversation memory<br>
+                    • Internet search support<br>
+                    • Voice input<br>
+                    • Voice output<br>
+                    • Copy responses<br>
+                    • Regenerate responses<br>
+                    • Mobile-friendly interface
+                </p>
+            </section>
+
+            <section class="creator-card">
+                <span>Created by</span>
+                <strong>Gokah Israel Ewoenam</strong>
+                <small>Akatsi, Volta Region, Ghana 🇬🇭</small>
+            </section>
+
+            <button type="button" class="back-button" id="backToChatButton">← Back to Chat</button>
+        </div>
+    </main>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="module" src="app.js"></script>
+
+<!-- PAGE CONTROLS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const sideMenu = document.getElementById("sideMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const menuButton = document.getElementById("menuButton");
+    const closeMenuButton = document.getElementById("closeMenuButton");
+    const aboutMenuButton = document.getElementById("aboutMenuButton");
+    const chatMenuButton = document.getElementById("chatMenuButton");
+    const newChatButton = document.getElementById("newChatButton");
+    const clearChatButton = document.getElementById("clearChatButton");
+    const backToChatButton = document.getElementById("backToChatButton");
+    const chatPage = document.getElementById("chatPage");
+    const aboutPage = document.getElementById("aboutPage");
+    const connectionStatus = document.getElementById("connection-status");
+
+    // MENU CONTROLS
+    function openMenu() {
+        sideMenu?.classList.add("open");
+        menuOverlay?.classList.add("active");
+    }
+
+    function closeMenu() {
+        sideMenu?.classList.remove("open");
+        menuOverlay?.classList.remove("active");
+    }
+
+    menuButton?.addEventListener("click", openMenu);
+    closeMenuButton?.addEventListener("click", closeMenu);
+    menuOverlay?.addEventListener("click", closeMenu);
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+
+    // PAGE NAVIGATION
+    function showChat() {
+        chatPage?.classList.add("active-page");
+        aboutPage?.classList.remove("active-page");
+        closeMenu();
+    }
+
+    function showAbout() {
+        chatPage?.classList.remove("active-page");
+        aboutPage?.classList.add("active-page");
+        closeMenu();
+    }
+
+    chatMenuButton?.addEventListener("click", showChat);
+    aboutMenuButton?.addEventListener("click", showAbout);
+    backToChatButton?.addEventListener("click", showChat);
+
+    // CHAT CONTROLS
+    newChatButton?.addEventListener("click", () => {
+        window.CLOUT?.clearChat();
+        showChat();
+    });
+
+    clearChatButton?.addEventListener("click", () => {
+        window.CLOUT?.clearChat();
+        showChat();
+    });
+
+    // CONNECTION STATUS
+    window.updateConnectionStatus = (status, text) => {
+        if (!connectionStatus) return;
+        const dot = connectionStatus.querySelector(".status-dot");
+        const span = connectionStatus.querySelector("span");
+        if (status === "online") {
+            dot.style.background = "#42ff9b";
+            span.textContent = "AI Online";
+        } else {
+            dot.style.background = "#ff3b30";
+            span.textContent = text || "Offline";
+        }
+    };
+
+    // STOP BUTTON CONTROL
+    const stopButton = document.getElementById("stopButton");
+    const sendButton = document.getElementById("sendButton");
+    
+    window.toggleStopButton = (show) => {
+        if (stopButton) stopButton.hidden = !show;
+        if (sendButton) sendButton.hidden = show;
+    };
+
+    // INITIALIZE
+    window.updateConnectionStatus("checking", "Checking connection...");
+});
+</script>
+
+</body>
+</html>
