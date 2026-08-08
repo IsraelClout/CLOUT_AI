@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- BASIC SETTINGS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#070b14">
+  <meta name="description" content="CLOUT AI - An intelligent AI assistant with Internet access.">
+  <meta name="author" content="Gokah Israel Ewoenam">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- PAGE TITLE -->
+  <title>CLOUT AI</title>
+
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="app" class="app">
+
+    <!-- HEADER -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">C</div>
+        <div class="brand-info">
+          <h1>CLOUT AI</h1>
+          <p>Intelligent AI Assistant</p>
+        </div>
+      </div>
+
+      <div id="connection-status" class="connection-status" aria-live="polite">
+        ● Connecting...
+      </div>
+    </header>
+
+    <!-- ABOUT BUTTON -->
+    <button
+      type="button"
+      id="about-button"
+      class="about-button"
+      aria-label="Open About CLOUT AI"
+      title="About CLOUT AI"
+    >
+      ℹ️
+    </button>
+
+    <!-- CHAT AREA -->
+    <main id="chat-messages" class="chat-messages" aria-live="polite" aria-label="CLOUT AI conversation">
+
+      <!-- WELCOME SCREEN -->
+      <section id="welcome-screen" class="welcome-screen">
+        <div class="welcome-logo" aria-hidden="true">C</div>
+        <h2>Welcome to CLOUT AI</h2>
+        <p>Your intelligent AI assistant. Ask questions, learn, create, solve problems, or search the Internet.</p>
+
+        <!-- QUICK PROMPTS -->
+        <div class="quick-prompts">
+          <button type="button" class="quick-prompt" data-prompt="Explain artificial intelligence in simple terms.">🧠 Explain AI</button>
+          <button type="button" class="quick-prompt" data-prompt="What are the latest technology trends?">🌐 Latest technology</button>
+          <button type="button" class="quick-prompt" data-prompt="Teach me JavaScript from the beginning.">💻 Learn JavaScript</button>
+          <button type="button" class="quick-prompt" data-prompt="Give me some ideas for a new software project.">🚀 Project ideas</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- STOP GENERATION -->
+    <button type="button" id="stop-button" class="stop-button" hidden aria-label="Stop generating response">⏹ Stop generating</button>
+
+    <!-- CHAT FOOTER -->
+    <footer class="chat-footer">
+      <form id="chat-form" class="chat-form" autocomplete="off">
+        <div class="input-container">
+          
+          <!-- Voice -->
+          <button type="button" id="voice-button" class="voice-button" aria-label="Use voice input" title="Speak to CLOUT">🎙️</button>
+
+          <!-- Message -->
+          <textarea
+            id="message-input"
+            class="message-input"
+            rows="1"
+            maxlength="8000"
+            placeholder="Message CLOUT..."
+            aria-label="Message CLOUT"
+            spellcheck="true"
+          ></textarea>
+
+          <!-- Send -->
+          <button type="submit" id="send-button" class="send-button" aria-label="Send message" title="Send message">➤</button>
+        </div>
+
+        <div class="input-footer">
+          <span>CLOUT AI can make mistakes. Verify important information.</span>
+        </div>
+      </form>
+    </footer>
+
+    <!-- ABOUT PANEL -->
+    <section
+      id="about-panel"
+      class="about-panel"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="about-title"
+    >
+      <div id="about-overlay" class="about-overlay"></div>
+
+      <div class="about-content" role="document">
+
+        <!-- ABOUT HEADER -->
+        <div class="about-header">
+          <div>
+            <span class="about-label">ABOUT</span>
+            <h2 id="about-title">CLOUT AI</h2>
+          </div>
+          <button type="button" id="close-about" class="close-about" aria-label="Close About" title="Close">✕</button>
+        </div>
+
+        <!-- ABOUT LOGO -->
+        <div class="about-logo" aria-hidden="true">C</div>
+
+        <!-- DESCRIPTION -->
+        <div class="about-section">
+          <h3>Your Intelligent AI Assistant</h3>
+          <p>CLOUT AI is an intelligent AI assistant designed to help users ask questions, learn new things, solve problems, create ideas, and interact with information through a conversational interface.</p>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="about-section">
+          <h3>What CLOUT Can Do</h3>
+          <div class="about-features">
+            <div class="about-feature">
+              <span>🤖</span>
+              <div><strong>AI Chat</strong><p>Ask CLOUT questions and receive intelligent responses.</p></div>
+            </div>
+            <div class="about-feature">
+              <span>🌐</span>
+              <div><strong>Internet Search</strong><p>CLOUT can use Internet information for current topics.</p></div>
+            </div>
+            <div class="about-feature">
+              <span>⚡</span>
+              <div><strong>Streaming Responses</strong><p>AI responses appear progressively as they are generated.</p></div>
+            </div>
+            <div class="about-feature">
+              <span>🎙️</span>
+              <div><strong>Voice Interaction</strong><p>Use your device microphone to communicate with CLOUT.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TECHNOLOGY -->
+        <div class="about-section">
+          <h3>Technology</h3>
+          <div class="technology-list">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span><span>NVIDIA AI</span><span>Tavily</span>
+          </div>
+        </div>
+
+        <!-- CREATOR -->
+        <div class="about-section creator-section">
+          <h3>Creator</h3>
+          <p>CLOUT AI was created by <strong>Gokah Israel Ewoenam</strong>.</p>
+        </div>
+
+        <!-- VERSION -->
+        <div class="about-version">CLOUT AI <span>•</span> Version 1.0</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- MAIN APPLICATION -->
+  <script type="module" src="./app.js"></script>
+
+</body>
+      </html>
