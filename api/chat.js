@@ -20,7 +20,7 @@
 const CONFIG = {
   NVIDIA_API_URL: "https://integrate.api.nvidia.com/v1/chat/completions",
   NVIDIA_MODEL: "meta/llama-3.1-70b-instruct",
-  MAX_TOKENS: 1024,
+  MAX_TOKENS: 256,
   TIMEOUT_MS: 45000
 };
 
