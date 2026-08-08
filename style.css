@@ -1,0 +1,765 @@
+/* =====================================================
+                     CLOUT AI
+                    style.css
+===================================================== */
+
+/* =====================================================
+                      RESET
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #070b14;
+  color: #f8fafc;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+button, textarea {
+  font-family: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =====================================================
+                       APP
+===================================================== */
+.app {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: radial-gradient(circle at 50% -10%, rgba(37, 99, 235, 0.16), transparent 35%), #070b14;
+}
+
+/* =====================================================
+                       HEADER
+===================================================== */
+.app-header {
+  width: 100%;
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  position: relative;
+  z-index: 20;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(7, 11, 20, 0.90);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* =====================================================
+                       BRAND
+===================================================== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 19px;
+  font-weight: 900;
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.25);
+}
+
+.brand-info h1 {
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+}
+
+.brand-info p {
+  margin-top: 3px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* =====================================================
+                  CONNECTION STATUS
+===================================================== */
+.connection-status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.connection-status.online {
+  color: #86efac;
+  background: rgba(34, 197, 94, 0.10);
+}
+
+.connection-status.offline {
+  color: #fda4af;
+  background: rgba(239, 68, 68, 0.10);
+}
+
+/* =====================================================
+                     ABOUT BUTTON
+===================================================== */
+.about-button {
+  position: fixed;
+  top: 75px;
+  left: 10px;
+  z-index: 40;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 11px;
+  background: rgba(15, 23, 42, 0.88);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.about-button:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(96, 165, 250, 0.25);
+  transform: translateY(-1px);
+}
+
+.about-button:active { transform: scale(0.93); }
+
+/* =====================================================
+                    CHAT AREA
+===================================================== */
+.chat-messages {
+  flex: 1;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 25px 12px 145px;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 20px; }
+
+/* =====================================================
+                   WELCOME SCREEN
+===================================================== */
+.welcome-screen {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 10px 80px;
+}
+
+.welcome-logo {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 38px;
+  font-weight: 900;
+  box-shadow: 0 0 50px rgba(37, 99, 235, 0.24);
+}
+
+.welcome-screen h2 {
+  font-size: 26px;
+  letter-spacing: -0.6px;
+}
+
+.welcome-screen > p {
+  max-width: 520px;
+  margin-top: 11px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+/* =====================================================
+                    QUICK PROMPTS
+===================================================== */
+.quick-prompts {
+  width: 100%;
+  max-width: 650px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+  margin-top: 26px;
+}
+
+.quick-prompt {
+  min-height: 50px;
+  padding: 9px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.quick-prompt:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(96, 165, 250, 0.30);
+  transform: translateY(-2px);
+}
+
+.quick-prompt:active { transform: scale(0.96); }
+
+/* =====================================================
+                       MESSAGES
+===================================================== */
+.message {
+  width: 100%;
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 22px;
+}
+
+.message.user { align-items: flex-end; }
+.message.assistant { align-items: flex-start; }
+
+/* =====================================================
+                   MESSAGE BUBBLE
+===================================================== */
+.message-bubble {
+  max-width: min(88%, 760px);
+  padding: 12px 15px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.message.user .message-bubble {
+  color: white;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 7px 25px rgba(37, 99, 235, 0.18);
+}
+
+.message.assistant .message-bubble {
+  color: rgba(255, 255, 255, 0.90);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-bottom-left-radius: 5px;
+}
+
+.message-bubble.streaming { border-color: rgba(96, 165, 250, 0.28); }
+.message-bubble.error { border-color: rgba(248, 113, 113, 0.4); background: rgba(248, 113, 113, 0.08); }
+
+/* =====================================================
+                 MARKDOWN-LIKE CONTENT
+===================================================== */
+.message-bubble strong { color: white; }
+
+.message-bubble code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.28);
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+
+.message-bubble pre {
+  margin-top: 10px;
+  padding: 12px;
+  overflow-x: auto;
+  border-radius: 10px;
+  background: #050812;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* =====================================================
+                  MESSAGE ACTIONS
+===================================================== */
+.copy-button, .speak-button, .regenerate-button, .retry-button {
+  margin-top: 8px;
+  margin-right: 5px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.copy-button:hover, .speak-button:hover, .regenerate-button:hover { color: white; background: rgba(255, 255, 255, 0.085); }
+.retry-button { color: #fda4af; }
+.retry-button:hover { background: rgba(248, 113, 113, 0.1); color: #fb7185; }
+
+/* =====================================================
+                     TYPING
+===================================================== */
+.typing-message { margin-bottom: 20px; }
+
+.message-bubble.typing {
+  min-width: 58px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.60);
+  animation: cloutTyping 1.2s infinite ease-in-out;
+}
+
+.typing span:nth-child(2) { animation-delay: 0.15s; }
+.typing span:nth-child(3) { animation-delay: 0.30s; }
+
+@keyframes cloutTyping {
+ 0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+
+/* =====================================================
+                       SOURCES
+===================================================== */
+.clout-sources {
+  width: min(88%, 760px);
+  margin-top: 9px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.sources-heading {
+  margin-bottom: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.60);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.source-card {
+  display: block;
+  padding: 9px 10px;
+  margin-top: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.source-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+.source-title { font-size: 11px; font-weight: 600; color: #dbeafe; }
+.source-domain { margin-top: 3px; font-size: 9px; color: rgba(255, 255, 255, 0.38); }
+
+/* =====================================================
+                    CHAT FOOTER
+===================================================== */
+.chat-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  padding: 9px 10px calc(9px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, #070b14 70%, transparent);
+}
+
+/* =====================================================
+                     CHAT FORM
+===================================================== */
+.chat-form {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+                  INPUT CONTAINER
+===================================================== */
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+  background: rgba(17, 24, 39, 0.94);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-container:focus-within {
+  border-color: rgba(96, 165, 250, 0.38);
+  box-shadow: 0 10px 45px rgba(37, 99, 235, 0.12);
+}
+
+/* =====================================================
+                  MESSAGE INPUT
+===================================================== */
+.message-input {
+  flex: 1;
+  min-width: 0;
+  max-height: 160px;
+  padding: 10px 4px;
+  resize: none;
+  overflow-y: auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.message-input::placeholder { color: rgba(255, 255, 255, 0.34); }
+.message-input::-webkit-scrollbar { width: 3px; }
+.message-input::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 10px; }
+
+/* =====================================================
+                 VOICE + SEND BUTTONS
+===================================================== */
+.voice-button, .send-button {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.voice-button {
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-size: 17px;
+}
+
+.voice-button:hover { background: rgba(255, 255, 255, 0.11); }
+.voice-button.recording { background: #dc2626; animation: recordingPulse 1.2s infinite; }
+
+@keyframes recordingPulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.send-button {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 5px 18px rgba(37, 99, 235, 0.25);
+}
+
+.send-button:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35); }
+.send-button:active { transform: scale(0.94); }
+.send-button:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+/* =====================================================
+                    STOP BUTTON
+===================================================== */
+.stop-button {
+  position: fixed;
+  left: 50%;
+  bottom: 86px;
+  transform: translateX(-50%);
+  z-index: 40;
+  padding: 7px 14px;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 10px;
+  background: rgba(127, 29, 29, 0.45);
+  color: #fca5a5;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.stop-button:hover { background: rgba(127, 29, 29, 0.65); color: white; }
+
+/* =====================================================
+                    INPUT FOOTER
+===================================================== */
+.input-footer {
+  padding-top: 6px;
+  text-align: center;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.27);
+}
+
+/* =====================================================
+                    ABOUT PANEL
+===================================================== */
+.about-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.about-panel.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* =====================================================
+                   ABOUT OVERLAY
+===================================================== */
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* =====================================================
+                   ABOUT CONTENT
+===================================================== */
+.about-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(430px, 92%);
+  height: 100%;
+  overflow-y: auto;
+  padding: 24px 20px calc(45px + env(safe-area-inset-bottom));
+  background: #0b1220;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateX(100%);
+  transition: transform 0.30s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-panel.open .about-content { transform: translateX(0); }
+.about-content::-webkit-scrollbar { width: 4px; }
+.about-content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 20px; }
+
+/* =====================================================
+                   ABOUT HEADER
+===================================================== */
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 27px;
+}
+
+.about-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #60a5fa;
+}
+
+.about-header h2 { font-size: 24px; letter-spacing: -0.5px; }
+
+.close-about {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-about:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: white;
+  border-color: rgba(248, 113, 113, 0.3);
+}
+
+/* =====================================================
+                     ABOUT LOGO
+===================================================== */
+.about-logo {
+  width: 82px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 40px;
+  font-weight: 900;
+  box-shadow: 0 0 45px rgba(37, 99, 235, 0.25);
+}
+
+/* =====================================================
+                   ABOUT SECTIONS
+===================================================== */
+.about-section { margin-top: 25px; }
+.about-section h3 { margin-bottom: 9px; font-size: 15px; font-weight: 600; }
+.about-section > p { font-size: 13px; line-height: 1.7; color: rgba(255, 255, 255, 0.57); }
+
+/* =====================================================
+                   ABOUT FEATURES
+===================================================== */
+.about-features { display: flex; flex-direction: column; gap: 8px; }
+.about-feature { display: flex; gap: 12px; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 13px; background: rgba(255, 255, 255, 0.035); }
+.about-feature > span { font-size: 20px; }
+.about-feature strong { display: block; margin-bottom: 3px; font-size: 12px; font-weight: 600; }
+.about-feature p { font-size: 11px; line-height: 1.5; color: rgba(255, 255, 255, 0.48); }
+
+/* =====================================================
+                    TECHNOLOGY
+===================================================== */
+.technology-list { display: flex; flex-wrap: wrap; gap: 7px; }
+.technology-list span { padding: 7px 10px; border: 1px solid rgba(96, 165, 250, 0.15); border-radius: 9px; background: rgba(96, 165, 250, 0.07); color: #bfdbfe; font-size: 10px; font-weight: 500; }
+
+/* =====================================================
+                      CREATOR
+===================================================== */
+.creator-section { padding: 15px; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; background: rgba(255, 255, 255, 0.025); }
+.creator-section strong { color: #93c5fd; }
+
+/* =====================================================
+                      VERSION
+===================================================== */
+.about-version { margin-top: 30px; text-align: center; font-size: 10px; color: rgba(255, 255, 255, 0.28); }
+.about-version span { margin: 0 5px; }
+
+/* =====================================================
+                     FOCUS
+===================================================== */
+button:focus-visible, textarea:focus-visible {
+  outline: 2px solid rgba(96, 165, 250, 0.65);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+                     MOBILE
+===================================================== */
+@media (max-width: 600px) {
+  .app-header { min-height: 62px; padding: 9px 11px; }
+  .brand-icon { width: 36px; height: 36px; border-radius: 11px; font-size: 18px; }
+  .brand-info h1 { font-size: 15px; }
+  .brand-info p { font-size: 9px; }
+  .connection-status { font-size: 9px; padding: 5px 8px; }
+  .about-button { top: 70px; left: 8px; width: 36px; height: 36px; }
+  .chat-messages { padding: 20px 9px 140px; }
+  .welcome-logo { width: 68px; height: 68px; border-radius: 21px; font-size: 34px; }
+  .welcome-screen h2 { font-size: 23px; }
+  .welcome-screen > p { font-size: 12px; }
+  .quick-prompts { gap: 8px; }
+  .quick-prompt { min-height: 47px; font-size: 10px; }
+  .message-bubble { max-width: 93%; padding: 10px 12px; font-size: 13px; }
+  .clout-sources { width: 93%; }
+  .chat-footer { padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); }
+  .input-container { border-radius: 16px; }
+  .voice-button, .send-button { width: 40px; height: 40px; flex-basis: 40px; }
+  .about-content { width: 100%; padding: 20px 16px calc(40px + env(safe-area-inset-bottom)); }
+}
+
+/* =====================================================
+                   VERY SMALL PHONES
+===================================================== */
+@media (max-width: 360px) {
+  .connection-status { display: none; }
+  .welcome-screen h2 { font-size: 21px; }
+  .quick-prompts { grid-template-columns: 1fr; }
+  .message-bubble { max-width: 95%; }
+  .voice-button, .send-button { width: 37px; height: 37px; flex-basis: 37px; }
+}
+
+/* =====================================================
+                       TABLET
+===================================================== */
+@media (min-width: 601px) {
+  .chat-messages { padding-left: 25px; padding-right: 25px; }
+}
+
+/* =====================================================
+                       DESKTOP
+===================================================== */
+@media (min-width: 1000px) {
+  .app { max-width: 1200px; margin: 0 auto; border-left: 1px solid rgba(255, 255, 255, 0.05); border-right: 1px solid rgba(255, 255, 255, 0.05); }
+  .app-header { padding-left: 25px; padding-right: 25px; }
+  .chat-messages { padding-left: 35px; padding-right: 35px; }
+}
+
+/* =====================================================
+                   REDUCED MOTION
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
