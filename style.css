@@ -571,7 +571,270 @@ button:focus-visible, textarea:focus-visible {
   .app-header { padding-left: 25px; padding-right: 25px; }
   .chat-messages { padding-left: 35px; padding-right: 35px; }
 }
+/* =====================================================
+                    ABOUT BUTTON
+===================================================== */
+.about-button {
+  position: fixed;
+  top: 76px;
+  left: 12px;
+  z-index: 50;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.88);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+}
 
+.about-button:hover {
+  background: rgba(255, 255, 255, 0.10);
+  transform: translateY(-1px);
+  border-color: rgba(96, 165, 250, 0.25);
+}
+
+.about-button:active { transform: scale(0.95); }
+
+/* =====================================================
+                    ABOUT PANEL
+===================================================== */
+.about-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.about-panel.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* =====================================================
+                  ABOUT OVERLAY
+===================================================== */
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* =====================================================
+                  ABOUT CONTENT
+===================================================== */
+.about-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(430px, 92%);
+  height: 100%;
+  overflow-y: auto;
+  padding: 25px 20px calc(40px + env(safe-area-inset-bottom));
+  background: #0b1220;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-panel.open .about-content {
+  transform: translateX(0);
+}
+
+.about-content::-webkit-scrollbar { width: 5px; }
+.about-content::-webkit-scrollbar-track { background: transparent; }
+.about-content::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+
+/* =====================================================
+                  ABOUT HEADER
+===================================================== */
+.about-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.about-label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #60a5fa;
+}
+
+.about-header h2 {
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+
+.close-about {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-about:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: white;
+  border-color: rgba(248, 113, 113, 0.3);
+}
+
+/* =====================================================
+                    ABOUT LOGO
+===================================================== */
+.about-logo {
+  width: 82px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 40px;
+  font-weight: 900;
+  box-shadow: 0 0 45px rgba(37, 99, 235, 0.25);
+}
+
+/* =====================================================
+                  ABOUT SECTION
+===================================================== */
+.about-section { margin-top: 25px; }
+
+.about-section h3 {
+  margin-bottom: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+.about-section > p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* =====================================================
+                  FEATURES
+===================================================== */
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-feature {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.035);
+  transition: background 0.2s ease;
+}
+
+.about-feature:hover { background: rgba(255, 255, 255, 0.05); }
+
+.about-feature > span { font-size: 20px; line-height: 1; }
+
+.about-feature strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.about-feature p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+/* =====================================================
+                  TECHNOLOGY
+===================================================== */
+.technology-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.technology-list span {
+  padding: 7px 10px;
+  border: 1px solid rgba(96, 165, 250, 0.15);
+  border-radius: 9px;
+  background: rgba(96, 165, 250, 0.07);
+  color: #bfdbfe;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* =====================================================
+                    CREATOR
+===================================================== */
+.creator-section {
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.creator-section strong { color: #93c5fd; }
+
+/* =====================================================
+                    VERSION
+===================================================== */
+.about-version {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.30);
+}
+
+.about-version span { margin: 0 5px; }
+
+/* =====================================================
+                    MOBILE
+===================================================== */
+@media (max-width: 600px) {
+  .about-button {
+    top: 70px;
+    left: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+  }
+
+  .about-content {
+    width: 100%;
+    padding: 20px 16px calc(35px + env(safe-area-inset-bottom));
+  }
+
+  .about-header h2 { font-size: 22px; }
+  }
 /* =====================================================
                 REDUCED MOTION
 ===================================================== */
@@ -583,3 +846,4 @@ button:focus-visible, textarea:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
