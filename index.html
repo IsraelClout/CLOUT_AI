@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0f1e">
+  <meta name="description" content="CLOUT AI - Your intelligent AI assistant with Internet access, created by Gokah Israel Ewoenam.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>CLOUT AI</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="app" class="app">
+
+    <!-- =============================================
+                         HEADER
+    ============================================== -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">C</div>
+        <div class="brand-info">
+          <h1>CLOUT AI</h1>
+          <p>Intelligent AI Assistant</p>
+        </div>
+      </div>
+
+      <div id="connection-status" class="connection-status" aria-live="polite">
+        ● Connecting...
+      </div>
+    </header>
+
+    <!-- =============================================
+                       CHAT CONTAINER
+    ============================================== -->
+    <main id="chat-messages" class="chat-messages" aria-live="polite" aria-label="CLOUT AI conversation">
+
+      <!-- WELCOME SCREEN -->
+      <section class="welcome-screen" id="welcome-screen">
+        <div class="welcome-logo" aria-hidden="true">C</div>
+        <h2>Welcome to CLOUT AI</h2>
+        <p>Ask questions, get intelligent answers, search the Internet, and interact with CLOUT using your voice.</p>
+
+        <div class="quick-prompts">
+          <button type="button" class="quick-prompt" data-prompt="Explain artificial intelligence in simple terms.">🧠 Explain AI</button>
+          <button type="button" class="quick-prompt" data-prompt="What are the latest technology trends?">🌐 Latest technology</button>
+          <button type="button" class="quick-prompt" data-prompt="Teach me JavaScript from the beginning.">💻 Learn JavaScript</button>
+          <button type="button" class="quick-prompt" data-prompt="Give me some ideas for a new software project.">🚀 Project ideas</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =============================================
+                       INPUT SECTION
+    ============================================== -->
+    <footer class="chat-footer">
+
+      <button type="button" id="stop-button" class="stop-button" hidden>⏹ Stop</button>
+
+      <form id="chat-form" class="chat-form" autocomplete="off">
+        <div class="input-container">
+          
+          <button type="button" id="voice-button" class="voice-button" aria-label="Voice input" title="Speak to CLOUT">🎙️</button>
+
+          <textarea
+            id="message-input"
+            class="message-input"
+            rows="1"
+            maxlength="8000"
+            placeholder="Message CLOUT..."
+            aria-label="Message CLOUT"
+          ></textarea>
+
+          <button type="submit" id="send-button" class="send-button" aria-label="Send message" title="Send message">➤</button>
+        </div>
+
+        <div class="input-footer">
+          <span>CLOUT can make mistakes. Verify important information.</span>
+        </div>
+      </form>
+
+    </footer>
+
+  </div>
+
+  <!-- APP SCRIPT -->
+  <script type="module" src="./app.js"></script>
+
+</body>
+</html>
